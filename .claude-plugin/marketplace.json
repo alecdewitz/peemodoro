@@ -1,15 +1,24 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "peemodoro",
-  "version": "1.0.0",
   "description": "Hydration-focused productivity timer. Your code can wait. Your kidneys cannot.",
-  "author": {
+  "owner": {
     "name": "Alec Dewitz",
-    "url": "https://github.com/alecdewitz"
+    "email": "alec@dewitz.dev"
   },
   "plugins": [
     {
       "name": "peemodoro",
-      "path": "."
+      "description": "Pomodoro timer that reminds you to hydrate and take breaks",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alec Dewitz",
+        "email": "alec@dewitz.dev"
+      },
+      "source": ".",
+      "category": "productivity",
+      "homepage": "https://github.com/alecdewitz/peemodoro",
+      "tags": ["pomodoro", "timer", "health", "hydration"]
     }
   ]
 }
