@@ -1,0 +1,76 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="urgencyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00C800"/>
+      <stop offset="25%" style="stop-color:#96C800"/>
+      <stop offset="50%" style="stop-color:#FFC800"/>
+      <stop offset="75%" style="stop-color:#FF8C00"/>
+      <stop offset="100%" style="stop-color:#C80000"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Terminal window -->
+  <rect x="60" y="50" width="1080" height="530" rx="12" ry="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Terminal header bar -->
+  <rect x="60" y="50" width="1080" height="40" rx="12" ry="12" fill="#161b22"/>
+  <rect x="60" y="78" width="1080" height="12" fill="#161b22"/>
+
+  <!-- Traffic lights -->
+  <circle cx="95" cy="70" r="7" fill="#ff5f56"/>
+  <circle cx="120" cy="70" r="7" fill="#ffbd2e"/>
+  <circle cx="145" cy="70" r="7" fill="#27c93f"/>
+
+  <!-- Terminal title -->
+  <text x="600" y="75" font-family="SF Mono, Monaco, Menlo, monospace" font-size="14" fill="#8b949e" text-anchor="middle">claude-code — peemodoro</text>
+
+  <!-- Urgency gradient bar -->
+  <rect x="100" y="110" width="1000" height="6" rx="3" fill="url(#urgencyGradient)" opacity="0.8"/>
+
+  <!-- Main content area -->
+
+  <!-- Toilet ASCII Art -->
+  <text x="200" y="200" font-family="SF Mono, Monaco, Menlo, monospace" font-size="28" fill="#00C800" filter="url(#glow)">
+    <tspan x="200" dy="0">    ┌─────┐</tspan>
+    <tspan x="200" dy="36">    │ 💧  │</tspan>
+    <tspan x="200" dy="36">    │ |│| │</tspan>
+    <tspan x="200" dy="36">    └─┬─┬─┘</tspan>
+    <tspan x="200" dy="36">      └─┘</tspan>
+  </text>
+
+  <!-- Peemodoro title -->
+  <text x="450" y="210" font-family="SF Mono, Monaco, Menlo, monospace" font-size="72" font-weight="bold" fill="#00C800" filter="url(#glow)">peemodoro</text>
+
+  <!-- Tagline -->
+  <text x="450" y="280" font-family="SF Mono, Monaco, Menlo, monospace" font-size="24" fill="#8b949e">
+    <tspan fill="#c9d1d9">Your code can wait.</tspan>
+    <tspan fill="#ff7b72"> Your kidneys cannot.</tspan>
+  </text>
+
+  <!-- Simulated statusline -->
+  <rect x="100" y="380" width="1000" height="50" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="130" y="415" font-family="SF Mono, Monaco, Menlo, monospace" font-size="22" fill="#79c0ff">💧 41:37</text>
+  <!-- Progress bar background -->
+  <rect x="280" y="395" width="120" height="12" rx="2" fill="#30363d"/>
+  <!-- Progress bar fill (showing ~92% full) -->
+  <rect x="280" y="395" width="110" height="12" rx="2" fill="#6e7681"/>
+
+  <!-- Description -->
+  <text x="600" y="490" font-family="SF Mono, Monaco, Menlo, monospace" font-size="20" fill="#8b949e" text-anchor="middle">A pomodoro timer for Claude coders who forget to use the bathroom</text>
+
+
+</svg>
