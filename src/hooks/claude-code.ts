@@ -188,15 +188,32 @@ export class ClaudeCodeIntegration {
   }
 }
 
+// Hints for new users (shown in statusline until they've logged 4 pees)
+const ONBOARDING_HINTS = [
+  '/peemodoro:pee to log a break',
+  '/peemodoro:break when timer ends',
+  '/peemodoro:stats to see progress',
+  '/peemodoro:focus for quiet mode',
+];
+
 // Generate the statusline output for Claude Code
 export function generateStatusLine(): string {
   const state = stateSync.getState();
 
-  return statuslineRenderer.render(
+  const statusline = statuslineRenderer.render(
     state.timer,
     state.config,
     state.stats.currentStreak
   );
+
+  // Show hints for new users (< 4 pees logged)
+  const totalPees = state.stats.peeBreaks + state.stats.stretchBreaks;
+  if (totalPees < 4) {
+    const hint = ONBOARDING_HINTS[totalPees % ONBOARDING_HINTS.length];
+    return `${statusline}  · ${hint}`;
+  }
+
+  return statusline;
 }
 
 export const claudeCodeIntegration = new ClaudeCodeIntegration();

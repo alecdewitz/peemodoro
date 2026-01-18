@@ -9,5 +9,6 @@
   "license": "MIT",
   "keywords": ["pomodoro", "timer", "health", "hydration", "productivity", "statusline", "claude-code"],
   "repository": "https://github.com/alecdewitz/peemodoro",
-  "homepage": "https://github.com/alecdewitz/peemodoro"
+  "homepage": "https://github.com/alecdewitz/peemodoro",
+  "commands": "./commands/"
 }

@@ -22,6 +22,7 @@ export interface TimerState {
   focusUntil?: number; // timestamp when focus mode expires
   lastBreakAt?: number;
   breakReminderAt?: number; // timestamp when break reminder was first shown
+  breakStartedAt?: number; // timestamp when break mode started
   currentSnoozeCount?: number; // snooze count for the current break cycle
 }
 

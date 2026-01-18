@@ -17,3 +17,11 @@ This will:
 - Enable auto-update (updates peemodoro on each new Claude Code session)
 
 Display the output to confirm setup was successful. Remind the user to restart Claude Code to activate the statusline.
+
+Then start the timer:
+
+```bash
+peemodoro start
+```
+
+Display the output to confirm the timer has started.

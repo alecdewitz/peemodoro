@@ -127,9 +127,9 @@ export class BreakScreen {
 
     lines.push(chalk.cyan('│' + ' '.repeat(41) + '│'));
 
-    // Actions
-    lines.push(chalk.cyan('│') + '        ' + chalk.white('[Press any key when done]') + '        ' + chalk.cyan('│'));
-    lines.push(chalk.cyan('│') + '        ' + chalk.gray('[ ] I peed  [ ] Just stretched') + '   ' + chalk.cyan('│'));
+    // Actions - show actual commands
+    lines.push(chalk.cyan('│') + '  ' + chalk.white('When done, run:') + ' '.repeat(24) + chalk.cyan('│'));
+    lines.push(chalk.cyan('│') + '    ' + chalk.green('/peemodoro:pee') + chalk.gray(' - log break & resume') + '   ' + chalk.cyan('│'));
 
     // Footer
     lines.push(chalk.cyan.bold('└─────────────────────────────────────────┘'));

@@ -93,6 +93,9 @@ export class StateSync {
             state.timer.status = 'running';
             state.timer.focusUntil = undefined;
           }
+        } else if (state.timer.status === 'break' && state.timer.breakStartedAt) {
+          const elapsedSeconds = Math.floor((Date.now() - state.timer.breakStartedAt) / 1000);
+          state.timer.timeRemaining = Math.max(0, state.config.breakDuration - elapsedSeconds);
         }
 
         return state;

@@ -243,12 +243,14 @@ export class PeemodoroCommands {
     const state = stateSync.getState();
     const isUrgent = state.timer.timeRemaining <= 0;
 
-    // Set breakReminderAt when break screen is first shown (for accurate response time tracking)
-    if (!state.timer.breakReminderAt) {
-      stateSync.updateTimer({
-        breakReminderAt: Date.now(),
-      });
-    }
+    // Set status to break and track when break started
+    const now = Date.now();
+    stateSync.updateTimer({
+      status: 'break',
+      timeRemaining: state.config.breakDuration,
+      breakStartedAt: now,
+      breakReminderAt: state.timer.breakReminderAt || now,
+    });
 
     return breakScreen.render(stats, badges, isUrgent);
   }
