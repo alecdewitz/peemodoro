@@ -1,6 +1,6 @@
 {
   "name": "peemodoro",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Pomodoro timer that reminds you to pee. Seriously.",
   "main": "dist/index.js",
   "bin": {
