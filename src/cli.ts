@@ -83,16 +83,10 @@ async function main() {
         break;
 
       case 'pee':
-        console.log(await commands.pee('pee'));
-        break;
-
       case 'stretch':
-        console.log(await commands.pee('stretch'));
-        break;
-
       case 'skip':
-        console.log(await commands.pee('skip'));
-        console.log(chalk.yellow('(Your bladder will remember this...)'));
+        console.log(await commands.pee(command as 'pee' | 'stretch' | 'skip'));
+        if (command === 'skip') console.log(chalk.yellow('(Your bladder will remember this...)'));
         break;
 
       case 'focus':

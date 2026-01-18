@@ -1,10 +1,6 @@
 import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
+import { CONFIG_FILE, PEEMODORO_DIR } from '../constants.js';
 import { DEFAULT_CONFIG, MODE_PRESETS, TimerConfig, TimerMode } from '../types.js';
-
-const PEEMODORO_DIR = path.join(os.homedir(), '.peemodoro');
-const CONFIG_FILE = path.join(PEEMODORO_DIR, 'config.json');
 
 export interface PeemodoroConfig extends TimerConfig {
   // UI preferences

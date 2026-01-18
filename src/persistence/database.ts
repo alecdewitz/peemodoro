@@ -1,11 +1,7 @@
 import Database from 'better-sqlite3';
 import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
+import { DB_PATH, PEEMODORO_DIR } from '../constants.js';
 import { Badge, BreakRecord, BreakType, UserStats } from '../types.js';
-
-const PEEMODORO_DIR = path.join(os.homedir(), '.peemodoro');
-const DB_PATH = path.join(PEEMODORO_DIR, 'history.db');
 
 export class PeemodoroDatabase {
   private db: Database.Database;
@@ -87,6 +83,10 @@ export class PeemodoroDatabase {
     `).run(timestamp, type, duration, snoozed ? 1 : 0, snoozeCount);
 
     // Update daily stats
+    const isPee = type === 'pee' ? 1 : 0;
+    const isStretch = type === 'stretch' ? 1 : 0;
+    const isSkip = type === 'skip' ? 1 : 0;
+
     this.db.prepare(`
       INSERT INTO daily_stats (date, total_breaks, pee_breaks, stretch_breaks, skipped_breaks)
       VALUES (?, 1, ?, ?, ?)
@@ -95,15 +95,7 @@ export class PeemodoroDatabase {
         pee_breaks = pee_breaks + ?,
         stretch_breaks = stretch_breaks + ?,
         skipped_breaks = skipped_breaks + ?
-    `).run(
-      today,
-      type === 'pee' ? 1 : 0,
-      type === 'stretch' ? 1 : 0,
-      type === 'skip' ? 1 : 0,
-      type === 'pee' ? 1 : 0,
-      type === 'stretch' ? 1 : 0,
-      type === 'skip' ? 1 : 0
-    );
+    `).run(today, isPee, isStretch, isSkip, isPee, isStretch, isSkip);
 
     // Update streak
     this.updateStreak(today);

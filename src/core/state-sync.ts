@@ -1,12 +1,6 @@
 import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
+import { LOCK_FILE, LOCK_TIMEOUT, PEEMODORO_DIR, STATE_FILE } from '../constants.js';
 import { Badge, DEFAULT_CONFIG, PeeState, TimerConfig, TimerState, UserStats } from '../types.js';
-
-const PEEMODORO_DIR = path.join(os.homedir(), '.peemodoro');
-const STATE_FILE = path.join(PEEMODORO_DIR, 'state.json');
-const LOCK_FILE = path.join(PEEMODORO_DIR, 'state.lock');
-const LOCK_TIMEOUT = 5000; // 5 seconds
 
 function generateInstanceId(): string {
   return `pee-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
@@ -157,12 +151,6 @@ export class StateSync {
         }
       }
       retries++;
-      // Small delay before retry
-      const delay = Math.random() * 100;
-      const start = Date.now();
-      while (Date.now() - start < delay) {
-        // Busy wait (sync delay)
-      }
     }
     return false;
   }
