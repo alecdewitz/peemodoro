@@ -1,7 +1,9 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "peemodoro",
-  "description": "Hydration-focused productivity timer. Your code can wait. Your kidneys cannot.",
+  "metadata": {
+    "description": "Hydration-focused productivity timer. Your code can wait. Your kidneys cannot."
+  },
   "owner": {
     "name": "Alec Dewitz",
     "email": "alec@dewitz.dev"
@@ -15,7 +17,10 @@
         "name": "Alec Dewitz",
         "email": "alec@dewitz.dev"
       },
-      "source": ".",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/alecdewitz/peemodoro.git"
+      },
       "category": "productivity",
       "homepage": "https://github.com/alecdewitz/peemodoro",
       "tags": ["pomodoro", "timer", "health", "hydration"]
