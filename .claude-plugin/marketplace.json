@@ -1,0 +1,15 @@
+{
+  "name": "peemodoro",
+  "version": "1.0.0",
+  "description": "Hydration-focused productivity timer. Your code can wait. Your kidneys cannot.",
+  "author": {
+    "name": "Alec Dewitz",
+    "url": "https://github.com/alecdewitz"
+  },
+  "plugins": [
+    {
+      "name": "peemodoro",
+      "path": "."
+    }
+  ]
+}
